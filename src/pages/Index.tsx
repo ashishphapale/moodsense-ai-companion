@@ -85,10 +85,16 @@ const Index = () => {
             </motion.p>
           </div>
 
-          {/* Mood Detector */}
-          <div className="mb-8">
-            <MoodDetector onMoodDetected={handleMoodDetected} />
-          </div>
+         {/* Mood Detector */}
+<div className="mb-8">
+  <MoodDetector onMoodDetected={handleMoodDetected} />
+
+  {currentMood && (
+    <p className="text-center mt-4 text-lg font-medium text-primary">
+      Current Mood Detected: {currentMood}
+    </p>
+  )}
+</div>
 
           {/* Motivational Quote */}
           <AnimatePresence mode="wait">
