@@ -46,6 +46,10 @@ export const Navigation = ({ onMenuClick }: NavigationProps) => {
             Sign In / Register
           </Button>
         </div>
+        const [loading, setLoading] = useState(false);
+        <Button disabled={loading}>
+  {loading ? "Loading..." : "Sign In"}
+</Button>
 
       </div>
     </nav>
