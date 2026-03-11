@@ -1,14 +1,32 @@
 {
   "name": "vite_react_shadcn_ts",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
+  "description": "MoodSense AI Companion - AI based emotion detection web application using face recognition",
+  "keywords": ["AI", "emotion-detection", "react", "vite", "moodsense", "face-detection"],
+  "author": "Ashish Phapale",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashishphapale/moodsense-ai-companion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashishphapale/moodsense-ai-companion/issues"
+  },
+  "homepage": "https://github.com/ashishphapale/moodsense-ai-companion",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "eslint --fix .",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
