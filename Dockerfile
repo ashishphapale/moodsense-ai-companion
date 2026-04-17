@@ -7,6 +7,10 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+# 🔥 FIX PERMISSION ISSUE AGAIN
+RUN chmod -R 755 node_modules
+
 RUN npm run build
 
 # Production stage
