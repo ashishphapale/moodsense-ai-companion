@@ -1,4 +1,5 @@
-FROM node:18
+# Build stage
+FROM node:18 AS build
 
 WORKDIR /app
 
@@ -6,12 +7,13 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-
-# 🔥 FIX PERMISSION ISSUE
-RUN chmod -R 755 node_modules
-
 RUN npm run build
 
-EXPOSE 5173
+# Production stage
+FROM nginx:alpine
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
