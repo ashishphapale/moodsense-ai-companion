@@ -7,6 +7,9 @@ RUN npm install
 
 COPY . .
 
+# 🔥 FIX PERMISSION ISSUE
+RUN chmod -R 755 node_modules
+
 RUN npm run build
 
 EXPOSE 5173
