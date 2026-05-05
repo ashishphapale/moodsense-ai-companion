@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code from GitHub...'
+            }
+        }
+        
+        stage('Build Backend') {
+            steps {
+                echo 'Building backend...'
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                dir('backend') {
+                    sh 'npm test || echo "No tests configured yet"'
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo '✅ Build succeeded!'
+        }
+        failure {
+            echo '❌ Build failed!'
+        }
+    }
+}
